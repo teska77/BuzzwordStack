@@ -1,0 +1,6 @@
+DEBUG = True
+SQLALCHEMY_DATABASE_URI = "postgresql://username:password@IPOrDomain/databasename"
+
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+DATABASE_CONNECT_OPTIONS = {}
+THREADS_PER_PAGE = 2
