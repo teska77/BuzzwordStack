@@ -5,6 +5,7 @@ from flask_marshmallow import Marshmallow
 
 app = Flask(__name__, static_folder="views", template_folder="views")
 app.config.from_object('backend_apiconfig')
+app.url_map.strict_slashes = False
 # CORS(app)
 db = SQLAlchemy(app)
 ma = Marshmallow(app)

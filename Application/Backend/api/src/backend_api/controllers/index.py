@@ -7,7 +7,7 @@ from backend_api.models.countmodel import CountModel
 def index():
     return "Hi"
 
-@app.route('/config/init/')
+@app.route('/config/init')
 def init_database():
     print("Creating tables")
     db.drop_all()
@@ -15,7 +15,7 @@ def init_database():
     db.session.commit()
     return 'Init complete'
 
-@app.route('/count')
+@app.route('/count', methods=['POST'])
 def count():
     db.session.add(CountModel())
     db.session.commit()
