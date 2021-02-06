@@ -13,8 +13,10 @@ services:
     depends_on:
       - db
     restart: always
+    links:
+      - db
     ports:
-        - "5000:5000"
+      - "5000:5000"
   db:
     container_name: buzzwordstack_db
     image: postgres
@@ -23,7 +25,16 @@ services:
     restart: always
     environment:
       POSTGRES_DB: api_db
-      POSTGRES_USER: safe
+      POSTGRES_USER: safeuser
       POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    expose: 
+      - 5432
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8000:8080
 volumes:
   db-data:
