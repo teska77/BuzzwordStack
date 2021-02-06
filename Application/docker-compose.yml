@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    image: buzzword-stack/frontend/base
+    build: Frontend/.
+    container_name: buzzwordstack_frontend
+    restart: always
+    ports:
+      - "8080:8080"
