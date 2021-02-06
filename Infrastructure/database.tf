@@ -4,7 +4,7 @@ resource "digitalocean_database_db" "database" {
 }
 
 resource "digitalocean_database_cluster" "postgres-cluster" {
-  name       = "buzzword-stack-cluster"
+  name       = "buzzword-stack-database-cluster"
   engine     = "pg"
   version    = "11"
   size       = "db-s-1vcpu-1gb"
