@@ -9,7 +9,7 @@ setup(
     install_requires=[
         'flask',
         'flask-sqlalchemy',
-        'flask-marshmallow',
+        'flask-marshmallow<0.12.0',
         'marshmallow-sqlalchemy',
         'marshmallow',
         'marshmallow_enum',

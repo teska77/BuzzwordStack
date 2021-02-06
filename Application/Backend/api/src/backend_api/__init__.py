@@ -9,4 +9,5 @@ app.config.from_object('backend_apiconfig')
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
+import backend_api.models.samplemodel
 import backend_api.controllers.index
