@@ -7,3 +7,9 @@ services:
     restart: always
     ports:
       - "8080:8080"
+  api:
+    build: Backend/.
+    container_name: buzzwordsstack_backend
+    restart: always
+    ports:
+        - "5000:5000"
