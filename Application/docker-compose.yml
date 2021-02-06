@@ -1,20 +1,35 @@
 version: '3'
 services:
   web:
-    image: buzzword-stack/frontend/base
+    image: buzzword-stack/frontend
     build: Frontend/.
     container_name: buzzwordstack_frontend
     restart: always
-    ports:
-      - "8080:8080"
+    expose:
+      - 8080
+    # ports:
+    #   - "8080:8080"
   api:
+    image: buzzword-stack/backend
     build: Backend/.
     container_name: buzzwordstack_backend
     restart: always
     links:
       - db
+    expose: 
+      - 5000
+    # ports:
+    #   - "5000:5000"
+  proxy:
+    image: buzzword-stack/proxy
+    build: Proxy/.
+    container_name: buzzwordstack_proxy
+    restart: always
+    links:
+      - web
+      - api
     ports:
-      - "5000:5000"
+      - 80:80
   db:
     container_name: buzzwordstack_db
     image: postgres
