@@ -20,3 +20,11 @@ resource "digitalocean_kubernetes_cluster" "cluster" {
     max_nodes  = 5
   }
 }
+
+output "docker-credentials" {
+  value = digitalocean_container_registry_docker_credentials.docker-credentials.docker_credentials
+}
+
+output "docker-container-registry" {
+  value = digitalocean_container_registry.container-registry.endpoint
+}
