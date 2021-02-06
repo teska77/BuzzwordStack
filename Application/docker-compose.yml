@@ -16,6 +16,8 @@ services:
     restart: always
     links:
       - db
+    environment: 
+      DB_URI: "postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}"
     expose: 
       - 5000
     # ports:
