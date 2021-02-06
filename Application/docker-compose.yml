@@ -9,7 +9,21 @@ services:
       - "8080:8080"
   api:
     build: Backend/.
-    container_name: buzzwordsstack_backend
+    container_name: buzzwordstack_backend
+    depends_on:
+      - db
     restart: always
     ports:
         - "5000:5000"
+  db:
+    container_name: buzzwordstack_db
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    restart: always
+    environment:
+      POSTGRES_DB: api_db
+      POSTGRES_USER: safe
+      POSTGRES_PASSWORD: password
+volumes:
+  db-data:

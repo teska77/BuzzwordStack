@@ -1,5 +1,5 @@
 DEBUG = True
-SQLALCHEMY_DATABASE_URI = "postgresql://username:password@IPOrDomain/databasename"
+SQLALCHEMY_DATABASE_URI = "postgresql://safe:password@db/api_db"
 
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 DATABASE_CONNECT_OPTIONS = {}
