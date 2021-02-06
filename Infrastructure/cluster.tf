@@ -1,7 +1,11 @@
-# resource "digitalocean_container_registry" "container-registry" {
-#   name                   = "buzzword-stack-container-registry"
-#   subscription_tier_slug = "starter"
-# }
+resource "digitalocean_container_registry" "container-registry" {
+  name                   = "buzzword-stack-container-registry"
+  subscription_tier_slug = "starter"
+}
+
+resource "digitalocean_container_registry_docker_credentials" "docker-credentials" {
+  registry_name = digitalocean_container_registry.container-registry.name
+}
 
 resource "digitalocean_kubernetes_cluster" "cluster" {
   name    = "buzzword-stack-kubernetes-cluster"
