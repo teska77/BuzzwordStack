@@ -4,6 +4,7 @@ resource "digitalocean_container_registry" "container-registry" {
 }
 
 resource "digitalocean_container_registry_docker_credentials" "docker-credentials" {
+  write = true
   registry_name = digitalocean_container_registry.container-registry.name
 }
 
