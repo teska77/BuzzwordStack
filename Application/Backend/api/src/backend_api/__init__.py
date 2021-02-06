@@ -10,4 +10,5 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 
 import backend_api.models.samplemodel
+import backend_api.models.countmodel
 import backend_api.controllers.index
