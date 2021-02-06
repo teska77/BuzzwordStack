@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h1>Count: {{ count }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -36,7 +37,18 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
-  }
+  },
+  data() {
+    return {
+      count: 0,
+    }
+  },
+  mounted() {
+    this.axios.post("/api/count", {}).then((response) => {
+        console.log(response.data)
+        this.count = response.data.count
+    })
+  },
 }
 </script>
 
