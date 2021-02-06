@@ -12,3 +12,7 @@ def init_database():
     db.create_all()
     db.session.commit()
     return 'Init complete'
+
+@app.route('/count')
+def count():
+    return "poop"

@@ -15,6 +15,6 @@ setup(
         'marshmallow_enum',
         'flask-cors',
         'flask_jwt',
-        'psycopg2'
+        'psycopg2-binary'
     ],
 )
