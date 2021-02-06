@@ -13,6 +13,7 @@ resource "digitalocean_ssh_key" "key" {
 resource "digitalocean_project_resources" "resources" {
   project = digitalocean_project.buzzword_stack.id
   resources = [
-      digitalocean_database_cluster.postgres-cluster.urn,
+    digitalocean_database_cluster.postgres-cluster.urn,
+    "do:kubernetes:${digitalocean_kubernetes_cluster.cluster.id}",
   ]
 }
