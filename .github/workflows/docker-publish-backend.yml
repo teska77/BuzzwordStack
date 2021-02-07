@@ -24,7 +24,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.6'
+          architecture: 'x64'
+      - name: Setup
+        run: ./setup-docker.sh
+        working-directory: "Application/Backend/api/src"
+      - name: Run Unit Tests
+        run: ~/.local/bin/pytest
+        working-directory: "Application/Backend/api"
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
         working-directory: "Application/Backend/"
