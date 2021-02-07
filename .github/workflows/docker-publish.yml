@@ -29,7 +29,7 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
         working-directory: "Application/Backend/"
       - name: Store docker creds
-        run: echo "cccccclddhfcuncbbduteggv$DOCKER_CONFIG" > $HOME/.docker/config.json
+        run: echo "$DOCKER_CONFIG" > $HOME/.docker/config.json
       - name: check docker creds
         run: cat $HOME/.docker/config.json
       - name: Login to registry
