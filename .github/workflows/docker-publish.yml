@@ -30,6 +30,8 @@ jobs:
         working-directory: "Application/Backend/"
       - name: Store docker creds
         run: echo '$DOCKER_CONFIG' > $HOME/.docker/config.json
+      - name: check docker creds
+        run: cat $HOME/.docker/config.json
       - name: Login to registry
         run: docker login registry.digitalocean.com/buzzword-stack-container-registry
 
