@@ -1,3 +1,4 @@
+# Not actually used in production but used for backup deployments to individual droplets
 version: '3'
 services:
   web:
@@ -39,12 +40,5 @@ services:
       - "5432:5432"
     expose: 
       - 5432
-#   adminer:
-#     image: adminer
-#     restart: always
-#     links:
-#       - db
-#     ports:
-#       - 8000:8080
 volumes:
   db-data:
