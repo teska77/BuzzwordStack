@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: registry.digitalocean.com/buzzword-stack-container-registry/backend:latest
+        ports:
+        - containerPort: 5000
+          name: backend
+        env:
+        - name: DB_URI
+          value: "postgresql://safeuser:vnvkx5mott5z1oew@buzzword-stack-database-cluster-do-user-8685688-0.b.db.ondigitalocean.com:25060/api_db?sslmode=require"
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api
+spec:
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+  selector:
+    app: backend

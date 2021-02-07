@@ -1,17 +1,14 @@
+# Not actually used in production but used for backup deployments to individual droplets
 version: '3'
 services:
   web:
     image: dmium/buzzword-stack_frontend
-    build: Frontend/.
     container_name: buzzwordstack_frontend
     restart: always
     expose:
       - 8080
-    # ports:
-    #   - "8080:8080"
   api:
     image: dmium/buzzword-stack_backend
-    build: Backend/.
     container_name: buzzwordstack_backend
     restart: always
     links:
@@ -20,11 +17,8 @@ services:
       DB_URI: "postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}"
     expose: 
       - 5000
-    # ports:
-    #   - "5000:5000"
   proxy:
     image: dmium/buzzword-stack_proxy
-    build: Proxy/.
     container_name: buzzwordstack_proxy
     restart: always
     links:
@@ -46,12 +40,5 @@ services:
       - "5432:5432"
     expose: 
       - 5432
-  adminer:
-    image: adminer
-    restart: always
-    links:
-      - db
-    ports:
-      - 8000:8080
 volumes:
   db-data:
