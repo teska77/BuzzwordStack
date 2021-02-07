@@ -21,9 +21,11 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Print Dart SDK version
+        working-directory: External/buzzword_stack_app/
         run: dart --version
 
       - name: Install dependencies
+        working-directory: External/buzzword_stack_app/
         run: dart pub get
 
       # Uncomment this step to verify the use of 'dart format' on each commit.
@@ -32,10 +34,12 @@ jobs:
 
       # Consider passing '--fatal-infos' for slightly stricter analysis.
       - name: Analyze project source
+        working-directory: External/buzzword_stack_app/
         run: dart analyze
 
       # Your project will need to have tests in test/ and a dependency on
       # package:test for this step to succeed. Note that Flutter projects will
       # want to change this to 'flutter test'.
       - name: Run tests
-        run: dart test
+        working-directory: External/buzzword_stack_app/
+        run: flutter test
