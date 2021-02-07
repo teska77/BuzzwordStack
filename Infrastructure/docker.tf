@@ -1,6 +1,5 @@
 resource "docker_registry_image" "frontend" {
   name = "${digitalocean_container_registry.container-registry.endpoint}/frontend"
-
   build {
     context = "../Application/Frontend"
   }

@@ -20,6 +20,9 @@ spec:
         ports:
         - containerPort: 5000
           name: backend
+        env:
+        - name: DB_URI
+          value: "postgresql://safeuser:vnvkx5mott5z1oew@buzzword-stack-database-cluster-do-user-8685688-0.b.db.ondigitalocean.com:25060/api_db?sslmode=require"
       imagePullSecrets:
         - name: regcred
 ---
