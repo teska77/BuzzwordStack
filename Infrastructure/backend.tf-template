@@ -1,0 +1,13 @@
+terraform {
+    required_version = ">= 0.14.6, < 0.14.7"
+    backend "s3" {
+        skip_credentials_validation = true
+        skip_metadata_api_check = true
+        access_key = ""
+        secret_key = ""
+        endpoint = "https://ams3.digitaloceanspaces.com"
+        bucket = "tf-state-buzzword-stack"
+        key = "production/terraform.tfstate"
+        region = "eu-west-2"
+    }
+}
