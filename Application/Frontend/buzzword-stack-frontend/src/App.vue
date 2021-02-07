@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="BuzzWordStack logo" src="@/assets/BuzzWordStackLogo.svg">
+    <img alt="BuzzWord Stack logo" src="@/assets/BuzzWordStackLogo.svg">
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/techstack">Tech Stack</router-link>
