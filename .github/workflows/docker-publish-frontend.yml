@@ -29,6 +29,8 @@ jobs:
           node-version: '12'
       - run: npm install
         working-directory: "Application/Frontend/buzzword-stack-frontend"
+      - run: npm run test:unit
+        working-directory: "Application/Frontend/buzzword-stack-frontend"
       - run: npm run build
         working-directory: "Application/Frontend/buzzword-stack-frontend"
       - name: Build image
