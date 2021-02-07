@@ -17,6 +17,7 @@ spec:
       containers:
       - name: backend
         image: registry.digitalocean.com/buzzword-stack-container-registry/backend:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
           name: backend
