@@ -28,14 +28,11 @@ jobs:
         with:
           python-version: '3.6'
           architecture: 'x64'
-      - name: Path
-        run: export PATH=$PATH:$HOME/.local/bin
-        working-directory: "Application/Backend/api/src"
       - name: Setup
         run: ./setup-docker.sh
         working-directory: "Application/Backend/api/src"
       - name: Run Unit Tests
-        run: pytest
+        run: ~/.local/bin/pytest
         working-directory: "Application/Backend/api"
       - name: Build image
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
