@@ -7,6 +7,7 @@ data "kubernetes_namespace" "default" {
   metadata {
     name = "default"
   }
+  depends_on = [ kubernetes_secret.dockerconfig ]
 }
 
 resource "kubernetes_secret" "dockerconfig" {
