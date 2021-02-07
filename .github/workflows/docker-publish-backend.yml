@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: fylein/python-pytest-github-action@v2
+      - uses: actions/setup-python@v3
       - name: Setup
         run: ./setup-docker.sh
         working-directory: "Application/Backend/api/src"
