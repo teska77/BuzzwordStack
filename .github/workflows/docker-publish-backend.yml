@@ -32,12 +32,6 @@ jobs:
         run: echo $DOCKER_CONFIG > ~/.docker/config.json
         env:
           DOCKER_CONFIG: ${{secrets.DOCKER_CONFIG}}
-      - name: Share docker creds
-        run: echo $DOCKER_CONFIG
-        env:
-          DOCKER_CONFIG: ${{secrets.DOCKER_CONFIG}}
-      - name: check docker creds
-        run: cat $HOME/.docker/config.json
       - name: Login to registry
         run: docker login registry.digitalocean.com/buzzword-stack-container-registry
 
