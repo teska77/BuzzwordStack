@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  final TextEditingController textController = new TextEditingController();
+  final TextEditingController textController = new TextEditingController(text: '134.209.136.75');
 
   Widget _buildBody(BuildContext context) {
     return ListView(
